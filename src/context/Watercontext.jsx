@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { saveUserSetting , getUserSetting, getDailySetting, saveDailySetting, saveWaterHistory } from "../utils/storage";
 
 export const UserWaterContext = createContext(null);
 export const DailyWaterContext = createContext(null);
@@ -11,6 +12,18 @@ export function UserWaterProvider({children}){
         startTime:'09:00',
         endTime: '11:00'
     });
+
+    //saving data to the local storage
+    useEffect( () => {
+    const savedSetting = getUserSetting();
+    if (savedSetting) {
+        setUserSetting(savedSetting)
+    }
+    }, [])
+
+    useEffect(() => {
+        saveUserSetting(userSetting)
+    }, [userSetting])
 
     return(
         <UserWaterContext.Provider value={{userSetting ,setUserSetting}}>
@@ -27,6 +40,23 @@ export function DailyWaterProvider({children}){
         history:[]
     })
 
+    //here it meant to check if the history of yesterday is saved or not to update it
+    useEffect( () => {
+        const savedSetting = getDailySetting();
+        if (savedSetting){
+            const isToday = savedSetting.date === new Date().toLocaleDateString()
+            if(isToday){
+                setDailySetting(savedSetting)
+            } else {
+                saveWaterHistory(savedSetting)
+            }
+        }
+    } ,[])
+
+    useEffect( () => {
+        saveDailySetting(dailySetting);
+    } , [dailySetting])
+
     return(
         <DailyWaterContext.Provider value={{dailySetting,setDailySetting}}>
             {children}
@@ -41,3 +71,5 @@ export function useUserWater(){
 export function useDailyWater(){
     return useContext(DailyWaterContext)
 }
+
+
