@@ -1,38 +1,66 @@
 import React from 'react'
 import { useUserWater , useDailyWater } from '../../context/Watercontext'
 import { saveDailySetting } from '../../utils/storage'
+import './Dashboard.css'
+import water from '../../assets/water.png'
+import Header from '../../components/Header/Header'
 
 function Dashboard() {
 
     const {userSetting} = useUserWater()
     const {dailySetting , setDailySetting} = useDailyWater()
 
-    function handleDrink(){
-        const newAmount = dailySetting.consumedAmount + 250 
-        setDailySetting(prev => {
-                if(prev.consumedAmount >= userSetting.dailyGoal){
-                    return prev
-                }
-                const newAmount = dailySetting.consumedAmount + 250
+    const progress = Math.min(
+        (dailySetting.consumedAmount / userSetting.dailyGoal) * 100,
+        100
+    )
 
-                return {
-                    ...prev,
-                    consumedAmount:newAmount,
-                    completed:newAmount >= userSetting.dailyGoal
-                }
+    function handleDrink(){
+
+        setDailySetting(prev => {
+
+            if(prev.consumedAmount >= userSetting.dailyGoal){
+                return prev
             }
-        )
+
+            const newAmount = prev.consumedAmount + 250
+
+            return {
+                ...prev,
+                consumedAmount:newAmount,
+                completed:newAmount >= userSetting.dailyGoal
+            }
+        })
     }
 
     return (
-        <div>
-        <h1>Daily Goal : {userSetting.dailyGoal}</h1>
-        <h1>consumed amount : {dailySetting.consumedAmount}</h1>
-        <h2>prograss bar : {(dailySetting.consumedAmount / userSetting.dailyGoal) * 100}%</h2>
-        {dailySetting.completed ? <h3>Completedddd!!!!!!</h3> : ""}
-        <button onClick={handleDrink}>Drinked water (add +250ml)</button>
+        <div className="dashboard-container">
+            <Header/>
+            <div className="main-info">
+                <h1>Water Buddy</h1>
+                <div className="water-info">
+                    <img src={water} alt="water drop"/>
+                    <div className="prograss-bar">
+                        <h2>
+                            Your Daily Goal is : {userSetting.dailyGoal},
+                            Your Progress is : {progress}%
+                        </h2>
+                    </div>
+                    <div className="add-water-btn">
+                        <button onClick={handleDrink}>Drink Another Cup of Water</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
 
 export default Dashboard
+
+{/* <div>
+        <h1>Daily Goal : {userSetting.dailyGoal}</h1>
+        <h1>consumed amount : {dailySetting.consumedAmount}</h1>
+        <h2>prograss bar : {(dailySetting.consumedAmount / userSetting.dailyGoal) * 100}%</h2>
+        {dailySetting.completed ? <h3>Completedddd!!!!!!</h3> : ""}
+        <button onClick={handleDrink}>Drinked water (add +250ml)</button>
+        </div> */}

@@ -1,3 +1,4 @@
+import './Setup.css'
 import React from 'react'
 import { useActionState } from 'react'
 import { useUserWater } from '../../context/Watercontext'
@@ -32,7 +33,7 @@ function Setup() {
     
 
     return (
-    <div>
+    <div className='setup-container'>
         <form action={formFunc}>
             <input type="number" name='dailyGoal' defaultValue={userSetting.dailyGoal} step={100} min={1000} max={4000}/>
             <input type="time" name='startTime' defaultValue={userSetting.startTime}/>
