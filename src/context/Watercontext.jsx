@@ -6,57 +6,58 @@ export const DailyWaterContext = createContext(null);
 
 
 export function UserWaterProvider({children}){
-    const [userSetting , setUserSetting] = useState({
-        dailyGoal:2000,
+
+    //we made the usestate hook get the info from the local 
+    // storage directly without waiting for the useeffect  
+    // (which mean waiting for the rendering)
+    const [userSetting , setUserSetting] = useState(() => {
+        return getUserSetting() || 
+        {dailyGoal:2000,
         reminderInterval:60,
         startTime:'09:00',
-        endTime: '11:00'
+        endTime: '22:00'}
     });
 
-    //saving data to the local storage
-    useEffect( () => {
-    const savedSetting = getUserSetting();
-    if (savedSetting) {
-        setUserSetting(savedSetting)
-    }
-    }, [])
-
+    //updating the user setting and saving it to the local storage with each form change
     useEffect(() => {
         saveUserSetting(userSetting)
     }, [userSetting])
 
+    //wrapped the children so we can use the state inside them
     return(
         <UserWaterContext.Provider value={{userSetting ,setUserSetting}}>
             {children}
         </UserWaterContext.Provider>
     )
+
 }
 
+//a function to handle daily data
 export function DailyWaterProvider({children}){
-    const [dailySetting , setDailySetting] =  useState({
+    //use state gets it data from the localStorage directly
+    const [dailySetting , setDailySetting] =  useState(() => {
+        const saved = getDailySetting()
+        if(saved){
+            const isToday = saved.date === new Date().toLocaleDateString()
+            if(isToday) return saved
+            else {
+                saveWaterHistory(saved)
+            }
+        }
+        return {
         date:new Date().toLocaleDateString(),
         consumedAmount:0,
         completed:false ,
         history:[]
+        }
     })
 
-    //here it meant to check if the history of yesterday is saved or not to update it
-    useEffect( () => {
-        const savedSetting = getDailySetting();
-        if (savedSetting){
-            const isToday = savedSetting.date === new Date().toLocaleDateString()
-            if(isToday){
-                setDailySetting(savedSetting)
-            } else {
-                saveWaterHistory(savedSetting)
-            }
-        }
-    } ,[])
-
+    //saving the daily data whenever it change
     useEffect( () => {
         saveDailySetting(dailySetting);
     } , [dailySetting])
 
+    //wrapped the children so we can use the state inside them
     return(
         <DailyWaterContext.Provider value={{dailySetting,setDailySetting}}>
             {children}
@@ -64,6 +65,8 @@ export function DailyWaterProvider({children}){
     )
 }
 
+
+//
 export function useUserWater(){
     return useContext(UserWaterContext)
 }
