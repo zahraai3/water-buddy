@@ -41,7 +41,11 @@ export function DailyWaterProvider({children}){
             const isToday = saved.date === new Date().toLocaleDateString()
             if(isToday) return saved
             else {
-                saveWaterHistory(saved)
+                saveWaterHistory({
+                    date: saved.date,
+                    consumedAmount: saved.consumedAmount,
+                    completed: saved.completed
+                })
             }
         }
         return {
