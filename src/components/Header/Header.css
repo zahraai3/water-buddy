@@ -1,0 +1,39 @@
+.navbar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20px;  
+    background-color: #FEFAFA;
+    color:#E7B664;
+    font-family: "Comic Relief", cursive;
+}
+.navbar .nav-links{
+    background-color: #FEFAFA;
+}
+.navbar .nav-links a{
+    text-decoration: none;
+    color:#E7B664;
+    font-family: "Comic Relief", cursive;
+    font-size:x-large;
+    font-weight: bolder;
+    margin-right:15px ;
+    background-color: #FEFAFA;
+
+}
+.navbar .nav-links a:hover{
+    color:#E7B664;
+    font-size: xx-large;
+}
+.navbar .nav-links a.active{
+    color:#E7B664;
+    font-size: x-large;
+}
+.navbar .nav-name h1{
+    font-size: xx-large;
+    font-weight: bolder;
+    color:#77A2BF;
+    font-family: "Comic Relief", cursive;
+    background-color: #FEFAFA;
+}

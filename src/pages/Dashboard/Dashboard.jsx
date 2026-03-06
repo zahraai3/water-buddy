@@ -35,7 +35,6 @@ function Dashboard() {
 
     return (
         <div className="dashboard-container">
-            <Header/>
             <div className="main-info">
                 <h1>Water Buddy</h1>
                 <div className="water-info">
