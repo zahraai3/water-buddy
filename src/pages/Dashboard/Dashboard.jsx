@@ -3,6 +3,7 @@ import { useUserWater , useDailyWater } from '../../context/Watercontext'
 import { saveDailySetting } from '../../utils/storage'
 import './Dashboard.css'
 import water from '../../assets/water.png'
+import image from '../../assets/water.png'
 import Header from '../../components/Header/Header'
 
 function Dashboard() {
@@ -35,25 +36,34 @@ function Dashboard() {
 
     return (
         <div className="dashboard-container">
-            <div className="main-info">
-                <h1>Water Buddy</h1>
                 <div className="water-info">
-                    <img src={water} alt="water drop"/>
-                    <div className="prograss-bar">
-                        <h2>
-                            Your Daily Goal is : {userSetting.dailyGoal},
-                            Your Progress is : {progress}%
-                        </h2>
+                    <div className="waterimg">
+                        <img src={image} alt="water drop"/>
                     </div>
-                    <div className="add-water-btn">
-                        <button onClick={handleDrink}>Drink Another Cup of Water</button>
+                    <div className="water-details">
+                        <div className="completed">
+                            <label class="container">
+                                <input checked={dailySetting.completed ? "checked" : ""} type="checkbox"/>
+                                <div class="checkmark"></div>
+                            </label>
+                            <h2 className='check-name'>completed</h2>
+                        </div>
+                        <div className="prograss-bar">
+                            <h2>
+                                Your Daily Goal is : {userSetting.dailyGoal} ml
+                            </h2>
+                            <h2>
+                                Your Progress is : {progress}%
+                            </h2>
+                        </div>
+                        <div className="add-water-btn">
+                            <button className='learn-more' onClick={handleDrink}>Drink Another Cup of Water</button>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     )
 }
-
 export default Dashboard
 
 {/* <div>
