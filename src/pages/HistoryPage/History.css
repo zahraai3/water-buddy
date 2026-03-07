@@ -12,6 +12,7 @@
         width: 100%;
         padding: 0 16px;
         box-sizing: border-box;
+        border-radius: 10px;
     }
 
     .history-wrapper {
@@ -24,11 +25,12 @@
         flex-direction: column;
         gap: 24px;
         padding: 50px;
-        border-radius: 5px;
+        border-radius: 10px;
         border: 3px solid var(--font-color);
         box-shadow: 5px 6px var(--font-color);
         width: 100%;
         box-sizing: border-box;
+
     }
 
     .history-title {
@@ -52,7 +54,7 @@
     .table-scroll {
         width: 100%;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;;
     }
 
     .history-table {
@@ -60,7 +62,7 @@
         border-collapse: separate;
         border-spacing: 0;
         border: 2px solid #79838d;
-        border-radius: 5px;
+        border-radius: 10px;
         box-shadow: 4px 4px #6fa2c4;
         overflow: hidden;
         font-family: "Comic Relief", cursive;
@@ -119,7 +121,7 @@
     .badge {
         display: inline-block;
         padding: 3px 14px;
-        border-radius: 5px;
+        border-radius: 10px;
         font-size: 13px;
         font-weight: 700;
         font-family: "Comic Relief", cursive;
@@ -147,7 +149,7 @@
         text-align: center;
         background-color: #d4a953dd;
         border: 2px solid #79838d;
-        border-radius: 5px;
+        border-radius: 10px;
         box-shadow: 4px 4px #6fa2c4;
         width: 100%;
         box-sizing: border-box;
