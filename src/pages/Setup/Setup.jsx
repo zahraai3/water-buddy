@@ -2,10 +2,12 @@ import './Setup.css'
 import React from 'react'
 import { useActionState } from 'react'
 import { useUserWater } from '../../context/Watercontext'
+import { useNavigate } from 'react-router-dom'
 
 
 function Setup() {
     const {userSetting , setUserSetting} = useUserWater();
+    const navigate = useNavigate();
 
     const [res, formFunc , isPending] = useActionState(
         async(prev , formData) => {
@@ -39,14 +41,14 @@ function Setup() {
                     <span>Take a sip of water and Customize Your Hydration.</span>
                 </div>
                 <label htmlFor="dailyGoal">Daily Goal (ml):</label>
-                <input  className='input'  type="number" name='dailyGoal' defaultValue={userSetting.dailyGoal} step={100} min={1000} max={4000}/>
+                <input  className='input'  type="number" name='dailyGoal' defaultValue={userSetting.dailyGoal} step={100} min={1000} max={4000} required/>
                 <label htmlFor="startTime">Start Time:</label>
-                <input  className='input' type="time" name='startTime' defaultValue={userSetting.startTime}/>
+                <input  className='input' type="time" name='startTime' defaultValue={userSetting.startTime} required/>
                 <label htmlFor="endTime">End Time:</label>
-                <input  className='input' type="time" name='endTime' defaultValue={userSetting.endTime}/>
+                <input  className='input' type="time" name='endTime' defaultValue={userSetting.endTime} required/>
                 <label htmlFor="reminderInterval">Reminder Interval (minutes):</label>
-                <input  className='input' type="number" name='reminderInterval' defaultValue={userSetting.reminderInterval} step={5} min={15} max={120}/>
-                <button className="button-confirm">Let`s Start →</button>
+                <input  className='input' type="number" name='reminderInterval' defaultValue={userSetting.reminderInterval} step={5} min={15} max={120} required/>
+                <button className="button-confirm" onClick={() => navigate("/dashboard")}>Let`s Start →</button>
             </form>
         </div>
     )
