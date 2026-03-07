@@ -1,25 +1,51 @@
-import React from 'react'
-import { getWaterHistory } from '../../utils/storage'
-
+import { getWaterHistory } from '../../utils/storage';
+import'./history.css'
 function History() {
+    const history = getWaterHistory() || [];
 
-    const historyElements = () => {
-        const history = getWaterHistory() || []
-        return history.length === 0 ? <p>No History Yet</p> : history.map((item,index) => {
-            return(
-                <div key={index}>
-                    <h2>Day : {item.date}</h2>
-                    <h3>Consumed Amount : {item.consumedAmount}</h3>
-                    <h3>Completed : {item.completed ? "True" : "False"}</h3>
-                </div>
-            )
-        })
-    }
     return (
-        <div>
-        {historyElements()}
+        <>
+        <div className="history-container">
+            <div className="history-wrapper">
+            <div className="history-title">
+                <h1>Water History</h1>
+                <span>Track your daily hydration progress</span>
+            </div>
+
+            {history.length === 0 ? (
+                <p className="no-history">No History Yet</p>
+            ) : (
+                <div className="table-scroll">
+                <table className="history-table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th> Day</th>
+                        <th> Consumed Amount</th>
+                        <th> Completed</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {history.map((item, index) => (
+                        <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{item.date}</td>
+                        <td>{item.consumedAmount}</td>
+                        <td>
+                            <span className={`badge ${item.completed ? 'done' : 'not-done'}`}>
+                            {item.completed ? 'Done' : 'Not Yet'}
+                            </span>
+                        </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+                </div>
+            )}
+            </div>
         </div>
-    )
+        </>
+    );
 }
 
-export default History
+export default History;
