@@ -1,0 +1,330 @@
+.setup-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:#79838d;
+    font-family: "Comic Relief", cursive;
+    margin: 8% auto;
+    max-width: 75vw;
+}
+.form {
+    --input-focus: #79838d;
+    /* --font-color: #454c54; */
+    --font-color:#6fa2c4 ;
+    --font-color-sub: #454c54;
+    --bg-color: #d4a953dd;
+    --main-color: #79838d;
+    padding: 50px;
+    /* background: #77A2BF; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 5px;
+    border: 3px solid var(--font-color);
+    box-shadow: 5px 6px var(--font-color);
+    width: 100%;
+}
+
+.title {
+    color: var(--font-color);
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.title span {
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.title h1{
+    font-weight: bolder;
+    margin: 0%;
+    color: var(--main-color);
+}
+.input {
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--font-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color-sub);
+    padding: 5px 10px;
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+}
+
+.input:focus {
+    border: 2px solid var(--font-color);
+}
+
+.button-log:active, .button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+}
+
+.button-confirm {
+    margin: 50px auto 0 auto;
+    width: 150px;
+    height: 55px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color-sub);
+    cursor: pointer;
+}
+
+.button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+    background-color: var(--font-color);
+}
+
+label{
+    color: var(--main-color);
+    font-weight: 800;
+    
+}
+
+
+/* ===== RESPONSIVE SETUP - Mobile First ===== */
+
+.setup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #79838d;
+    font-family: "Comic Relief", cursive;
+    margin: 8% auto;
+    max-width: 75vw;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.form {
+    --input-focus: #79838d;
+    --font-color: #6fa2c4;
+    --font-color-sub: #454c54;
+    --bg-color: #d4a953dd;
+    --main-color: #79838d;
+
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 5px;
+    border: 3px solid var(--font-color);
+    box-shadow: 5px 6px var(--font-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    color: var(--font-color);
+    font-weight: 900;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.title span {
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.title h1 {
+    font-weight: bolder;
+    margin: 0%;
+    color: var(--main-color);
+    word-break: break-word;
+}
+
+.input {
+    width: 300px;
+    max-width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--font-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color-sub);
+    padding: 5px 10px;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Comic Relief", cursive;
+}
+
+.input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+}
+
+.input:focus {
+    border: 2px solid var(--font-color);
+}
+
+.button-log:active,
+.button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+}
+
+.button-confirm {
+    margin: 50px auto 0 auto;
+    width: 150px;
+    height: 55px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color-sub);
+    cursor: pointer;
+    font-family: "Comic Relief", cursive;
+    touch-action: manipulation; /* يمنع التأخير على الهاتف */
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+    background-color: var(--font-color);
+}
+
+label {
+    color: var(--main-color);
+    font-weight: 800;
+}
+
+/* ===== TABLET (max-width: 768px) ===== */
+@media (max-width: 768px) {
+    .setup-container {
+        margin: 10% auto;
+        max-width: 90vw;
+        padding: 0 12px;
+    }
+
+    .form {
+        padding: 32px 28px;
+        gap: 13px;
+        box-shadow: 4px 5px var(--font-color);
+    }
+
+    .title {
+        margin-bottom: 18px;
+    }
+
+    .title span {
+        font-size: 15px;
+    }
+
+    .input {
+        width: 100%;
+        height: 48px;
+        font-size: 14px;
+        box-shadow: 3px 3px var(--font-color);
+    }
+
+    .button-confirm {
+        width: 140px;
+        height: 50px;
+        font-size: 16px;
+        margin-top: 35px;
+    }
+}
+
+/* ===== MOBILE (max-width: 480px) ===== */
+@media (max-width: 480px) {
+    .setup-container {
+        margin: 6% auto;
+        max-width: 100vw;
+        padding: 0 16px;
+    }
+
+    .form {
+        padding: 24px 20px;
+        gap: 12px;
+        border-width: 2px;
+        box-shadow: 3px 4px var(--font-color);
+        border-radius: 8px;
+    }
+
+    .title {
+        margin-bottom: 14px;
+    }
+
+    .title h1 {
+        font-size: clamp(1.3rem, 6vw, 1.8rem);
+        line-height: 1.3;
+    }
+
+    .title span {
+        font-size: clamp(12px, 3.5vw, 15px);
+    }
+
+    .input {
+        width: 100%;
+        height: 46px;
+        font-size: 14px;
+        padding: 5px 10px;
+        box-shadow: 3px 3px var(--font-color);
+        /* يجعل النص أوضح على الهاتف */
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .button-confirm {
+        width: 130px;
+        height: 48px;
+        font-size: 15px;
+        margin-top: 28px;
+        box-shadow: 3px 3px var(--main-color);
+    }
+}
+
+/* ===== SMALL MOBILE (max-width: 360px) ===== */
+@media (max-width: 360px) {
+    .form {
+        padding: 20px 16px;
+        gap: 10px;
+    }
+
+    .title h1 {
+        font-size: 1.2rem;
+    }
+
+    .input {
+        height: 44px;
+        font-size: 13px;
+    }
+
+    .button-confirm {
+        width: 120px;
+        height: 45px;
+        font-size: 14px;
+    }
+}
