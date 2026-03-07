@@ -1,82 +1,128 @@
-.navbar{
+/* ===== NAVBAR BASE ===== */
+
+.navbar {
     width: 100%;
     height: auto;
     display: flex;
-    justify-content:space-between;
+    justify-content:start;
+    gap: 20px;
     align-items: center;
-    padding: 20px;  
+    padding: 20px;
     background-color: #fefafae3;
-    color:#E7B664;
+    color: #E7B664;
     font-family: "Comic Relief", cursive;
+    box-sizing: border-box;
 }
-.navbar .nav-links{
-    background-color: #FEFAFA;
-}
-.navbar .nav-links a{
-    text-decoration: none;
-    color:#E7B664;
-    font-family: "Comic Relief", cursive;
-    font-size:x-large;
-    font-weight: bolder;
-    margin-right:15px ;
-    background-color: #FEFAFA;
 
+.navbar .nav-links {
+    background-color: #FEFAFA;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
 }
-.navbar .nav-links a:hover{
-    color:#E7B664;
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #E7B664;
+    font-family: "Comic Relief", cursive;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-right: 15px;
+    background-color: #FEFAFA;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.navbar .nav-links a:hover {
+    color: #E7B664;
     font-size: xx-large;
 }
-.navbar .nav-links a.active{
-    color:#E7B664;
+
+.navbar .nav-links a.active {
+    color: #E7B664;
     font-size: x-large;
 }
-.navbar .nav-name h1{
-    font-size: xx-large;
-    font-weight: bolder;
-    color:#77A2BF;
-    font-family: "Comic Relief", cursive;
-    background-color: #FEFAFA;
+
+.navbar .nav-links{
+    margin-left: auto;
 }
 
-/* ===== Responsive Mobile ===== */
+.navbar .nav-name h1 {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: #77A2BF;
+    font-family: "Comic Relief", cursive;
+    background-color: #FEFAFA;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* ===== TABLET (max-width: 768px) ===== */
+
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 15px;
+        padding: 14px 16px;
     }
 
     .navbar .nav-name h1 {
-        font-size: x-large;
+        font-size: clamp(1rem, 4vw, 1.5rem);
     }
 
     .navbar .nav-links a {
-        font-size: large;
+        font-size: clamp(0.85rem, 3.5vw, 1.1rem);
         margin-right: 10px;
     }
 
     .navbar .nav-links a:hover {
-        font-size: x-large;
+        font-size: clamp(0.95rem, 4vw, 1.2rem);
+    }
+
+    .navbar .nav-links a.active {
+        font-size: clamp(0.85rem, 3.5vw, 1.1rem);
     }
 }
 
+/* ===== MOBILE (max-width: 480px) ===== */
+
 @media (max-width: 480px) {
     .navbar {
-        padding: 12px;
-        gap: 8px;
+        padding: 10px 12px;
     }
 
     .navbar .nav-name h1 {
-        font-size: large;
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+
+    .navbar .nav-links {
+        gap: 2px;
     }
 
     .navbar .nav-links a {
-        font-size: medium;
-        margin-right: 8px;
+        font-size: clamp(0.75rem, 3.2vw, 0.95rem);
+        margin-right: 6px;
     }
 
-    .navbar .nav-links a:hover {
-        font-size: large;
+    .navbar .nav-links a:hover,
+    .navbar .nav-links a.active {
+        font-size: clamp(0.8rem, 3.5vw, 1rem);
+    }
+}
+
+/* ===== SMALL MOBILE (max-width: 360px) ===== */
+
+@media (max-width: 360px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .navbar .nav-name h1 {
+        font-size: 0.85rem;
+    }
+
+    .navbar .nav-links a {
+        font-size: 0.7rem;
+        margin-right: 4px;
     }
 }
