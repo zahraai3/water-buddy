@@ -48,7 +48,7 @@ function Setup() {
                 <input  className='input' type="time" name='endTime' defaultValue={userSetting.endTime} required/>
                 <label htmlFor="reminderInterval">Reminder Interval (minutes):</label>
                 <input  className='input' type="number" name='reminderInterval' defaultValue={userSetting.reminderInterval} step={5} min={15} max={120} required/>
-                <button className="button-confirm" onClick={() => navigate("/dashboard")}>Let`s Start →</button>
+                <button className="button-confirm" onClick={() => navigate("/")}>Let`s Start →</button>
             </form>
         </div>
     )

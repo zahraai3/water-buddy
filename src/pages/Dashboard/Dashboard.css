@@ -13,6 +13,8 @@
     box-shadow:0px 4px 15px rgba(119, 162, 191, 0.6);
     margin: 8% auto;
     max-width: 75vw;
+    position: relative;
+
 }
 .water-info{
     display: flex;
@@ -20,6 +22,18 @@
     align-items: center;
     justify-content: center;
     padding: 30px;
+    /* position: relative; */
+}
+.setting-toggle{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+.setting-toggle svg{
+    width: 35px;
+    height: 35px;
+    fill: #79838d;
+    cursor: pointer;
 }
 .water-details{
     display: flex;

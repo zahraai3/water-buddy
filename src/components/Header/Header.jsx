@@ -26,8 +26,8 @@ function Header() {
                 <h1>Water Buddy</h1>
             </div>
             <div className="nav-links">
-                <NavLink to='/'>Setting</NavLink>
-                <NavLink to='/dashboard'>Home</NavLink>
+                <NavLink to='/setting'>Setting</NavLink>
+                <NavLink to='/'>Home</NavLink>
                 <NavLink to='/history'>History</NavLink>
             </div>
         </div>
