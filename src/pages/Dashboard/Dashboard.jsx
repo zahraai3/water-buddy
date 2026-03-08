@@ -45,9 +45,9 @@ function Dashboard() {
                     </div>
                     <div className="water-details">
                         <div className="completed">
-                            <label class="container">
+                            <label className="container">
                                 <input checked={dailySetting.completed ? "checked" : ""} type="checkbox"/>
-                                <div class="checkmark"></div>
+                                <div className="checkmark"></div>
                             </label>
                             <h2 className='check-name'>completed</h2>
                         </div>

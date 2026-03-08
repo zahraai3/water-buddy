@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { saveUserSetting , getUserSetting, getDailySetting, saveDailySetting, saveWaterHistory } from "../utils/storage";
-
+import { getNotificationPermission, saveNotificationPermission } from "../utils/storage"
 export const UserWaterContext = createContext(null);
 export const DailyWaterContext = createContext(null);
 export const NotificationContext = createContext(null);

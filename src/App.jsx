@@ -3,7 +3,7 @@ import Home from './pages/Home/Home'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Setup from './pages/Setup/Setup'
 import History from './pages/HistoryPage/History'
-import { UserWaterProvider , DailyWaterProvider } from './context/Watercontext'
+import { UserWaterProvider , DailyWaterProvider ,NotificationProvider} from './context/Watercontext'
 import { createBrowserRouter,createRoutesFromElements ,Route , RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter(
@@ -21,7 +21,9 @@ function App() {
     <div>
       <UserWaterProvider>
         <DailyWaterProvider>
-          <RouterProvider router={router} />
+          <NotificationProvider>
+            <RouterProvider router={router} />
+          </NotificationProvider>
         </DailyWaterProvider>
       </UserWaterProvider>
     </div>

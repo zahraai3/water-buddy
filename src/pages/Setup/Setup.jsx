@@ -3,9 +3,13 @@ import React from 'react'
 import { useActionState } from 'react'
 import { useUserWater } from '../../context/Watercontext'
 import { useNavigate } from 'react-router-dom'
+import  {useRequestNotificationPermission} from '../../hooks/hooks'
+import {useNotificationContext} from '../../context/Watercontext'
 
 
 function Setup() {
+    const requestPermissionNotification = useRequestNotificationPermission()
+    const {permission} = useNotificationContext()
     const {userSetting , setUserSetting} = useUserWater();
     const navigate = useNavigate();
 
@@ -42,8 +46,23 @@ function Setup() {
                 </div>
                 <label htmlFor="dailyGoal">Daily Goal (ml):</label>
                 <input  className='input'  type="number" name='dailyGoal' defaultValue={userSetting.dailyGoal} step={100} min={1000} max={4000} required/>
+                <label htmlFor="notificationPermission">Want to get Notifications:</label>
+                <select 
+                    className='input' 
+                    name="notificationPermission" 
+                    defaultValue={permission ? "granted" : "denied"} 
+                    onChange={(e) => {
+                        if(e.target.value === "granted"){
+                            requestPermissionNotification()
+                        }
+                    }}
+                    required
+                >
+                    <option value="granted">Granted</option>
+                    <option value="denied">Denied</option>
+                </select>
                 <label htmlFor="startTime">Start Time:</label>
-                <input  className='input' type="time" name='startTime' defaultValue={userSetting.startTime} required/>
+                <input className='input' type="time" name='startTime' defaultValue={userSetting.startTime} required/>
                 <label htmlFor="endTime">End Time:</label>
                 <input  className='input' type="time" name='endTime' defaultValue={userSetting.endTime} required/>
                 <label htmlFor="reminderInterval">Reminder Interval (minutes):</label>
