@@ -68,11 +68,3 @@ function Dashboard() {
     )
 }
 export default Dashboard
-
-{/* <div>
-        <h1>Daily Goal : {userSetting.dailyGoal}</h1>
-        <h1>consumed amount : {dailySetting.consumedAmount}</h1>
-        <h2>prograss bar : {(dailySetting.consumedAmount / userSetting.dailyGoal) * 100}%</h2>
-        {dailySetting.completed ? <h3>Completedddd!!!!!!</h3> : ""}
-        <button onClick={handleDrink}>Drinked water (add +250ml)</button>
-        </div> */}

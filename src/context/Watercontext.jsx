@@ -3,7 +3,28 @@ import { saveUserSetting , getUserSetting, getDailySetting, saveDailySetting, sa
 
 export const UserWaterContext = createContext(null);
 export const DailyWaterContext = createContext(null);
+export const NotificationContext = createContext(null);
 
+export function NotificationProvider({children}){
+    const [permission,setPermission] = useState(() => {
+        return getNotificationPermission() || false
+    })
+
+    useEffect(()=>{
+        saveNotificationPermission(permission)
+    },[permission])
+
+
+    return (
+        <NotificationContext.Provider value={{permission,setPermission}}>
+            {children}
+        </NotificationContext.Provider>
+    )
+}
+//hook to use the notification context
+export function useNotificationContext(){
+    return useContext(NotificationContext)
+}
 
 export function UserWaterProvider({children}){
 

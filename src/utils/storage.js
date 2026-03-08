@@ -45,4 +45,21 @@ export function getWaterHistory(){
     }
 }
 
+export function saveNotificationPermission(permission){
+    const permissionData = JSON.parse(localStorage.getItem("notificationPermission")) 
+    const parsed = permissionData !== null ? JSON.parse(permissionData) : null
+    if(parsed !== permission){
+        localStorage.setItem("notificationPermission", JSON.stringify(permission))
+    }
+}
+
+export function getNotificationPermission(){
+    try{
+        const data = JSON.parse(localStorage.getItem("notificationPermission"))
+        return data ?? false
+    }catch(error){
+        console.error("Error reading notificationPermission:", error)
+        return false
+    }
+}
 
