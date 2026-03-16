@@ -1,6 +1,7 @@
 # Water Buddy
 
 Welcome to Water Buddy, a beginner-friendly React application designed to help you track your daily water intake.
+## Live preview (https://water-buddy-alpha.vercel.app/)
 
 ## Table of Contents
 
