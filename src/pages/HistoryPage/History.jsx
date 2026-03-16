@@ -1,5 +1,5 @@
 import { getWaterHistory } from '../../utils/storage';
-import'./history.css'
+import'./History.css'
 function History() {
     const history = getWaterHistory() || [];
 
