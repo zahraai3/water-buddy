@@ -1,16 +1,57 @@
-# React + Vite
+# Water Buddy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Water Buddy, a beginner-friendly React application designed to help you track your daily water intake.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Track daily water intake
+- Set goals for hydration
+- User-friendly interface
+- Simple and intuitive design
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To install Water Buddy on your local machine, follow these steps:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/zahraai3/water-buddy.git
+   cd water-buddy
+   ```
+
+2. **Install dependencies**  
+   Ensure you have [Node.js](https://nodejs.org/) installed, then run:  
+   ```bash
+   npm install
+   ```
+
+3. **Start the application**  
+   ```bash
+   npm start
+   ```
+   Your application should now be running at `http://localhost:3000`
+
+## Usage
+
+1. **Open the app** in your browser after starting it.
+2. **Input your daily water intake** using the provided input fields.
+3. **Set your hydration goals** to track your progress effectively.
+
+## Contributing
+
+Contributions are welcome!  
+To contribute, please fork the repository, make your changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Happy Hydrating!  
